@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/css/web-css/style.css">
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script>
+            //console.log(<%= data.position %>)
+			function initialize() {
+				var myLatlng = new google.maps.LatLng(<%= data.position %>);
+				var mapOptions = {
+					zoom: 10,
+					center: myLatlng
+				}
+
+				var map = new google.maps.Map(document.getElementById('map-canvas3'), mapOptions);
+				var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					title: 'Hello World!'
+				});
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="font-logo">Yes we scan</div>
+			<nav>
+				<ul>
+	                <li><a href="/">Accueil </a></li>
+	                <li><a href="/recherche">Recherche </a></li>
+	                <li><a href="/inscription">S'inscrire</a></li>
+	                <li><a href="/login">Se connecter</a></li>
+                </ul>
+			</nav>
+		</div>
+		<div class="empty"></div>
+		<div class="content create-survey consultation">
+			<div class="title-page">
+				<div class="div-title-page"><span>Consultation de sondage</span></div>
+			</div>
+			<div class="top-content-consultation">
+				<div id="map-canvas3"></div>
+				<div id="description-consultation">
+					<div class="title-consultation">Sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">anonyme</span></div>
+					<div class="question-consultation"><%= data.question %></div>
+					<div class="contexte-consultation">
+						<span><%= data.contexte %></span>
+					</div>
+					<div class="two-buttons-confirmation">
+						<!--
+						<div class="button button1">Voter</div>
+						<div class="button button2">Visualisation affiche</div></br></br>
+						-->
+						<a href="/template/<%= data.id %>"><div class="button button2">Visualisation affiche</div></a>
+						<a href="/dupliquer/<%= data.id %>"><div class="button button4">Dupliquer</div></a>
+					</div>
+				</div>
+			</div>
+			<div class="middle-content-consultation">
+				<div class="title-page">
+					<div class="div-title-page"><span>Statistiques des résultats</span></div>
+				</div>
+				<div id="camenber">
+                    <!--légende stat -->
+                    <div id="pourcentage">
+                    	Sur <%= data.somme %> votants :
+                        <%if (data.r1) {%>
+                        <div class="div-pourcentage">
+                            <div class="carre r1"></div>
+                            <div class="chiffres"><%=  data.r1 %> : <%= (data.vote1*100/data.somme).toFixed(2) %>%</div>
+                        </div>
+                        <%}%>
+                        <%if (data.r2) {%>
+                        <div class="div-pourcentage">
+                            <div class="carre r2"></div>
+                            <div class="chiffres"><%=  data.r2 %> : <%= (data.vote2*100/data.somme).toFixed(2) %>%</div>
+                        </div>
+                        <%}%>
+                        <%if (data.r3) {%>
+                        <div class="div-pourcentage">
+                            <div class="carre r3"></div>
+                            <div class="chiffres"><%=  data.r3 %> : <%= (data.vote3*100/data.somme).toFixed(2) %>%</div>
+                        </div>
+                        <%}%>
+                        <%if (data.r4) {%>
+                        <div class="div-pourcentage">
+                            <div class="carre r4"></div>
+                            <div class="chiffres"><%=  data.r4 %> : <%= (data.vote4*100/data.somme).toFixed(2) %>%</div>
+                        </div>
+                        <%}%>
+                        <%if (data.r5) {%>
+                        <div class="div-pourcentage">
+                            <div class="carre r5"></div>
+                            <div class="chiffres"><%=  data.r5 %> : <%= (data.vote5*100/data.somme).toFixed(2) %>%</div>
+                        </div>
+                        <%}%>
+                    </div>
+                    <script src="/js/Chart.js"></script>
+                    <canvas id="canvas" height="300" width="300"></canvas>
+                    <script>
+                        var pieData = [
+                                {
+                                    value: <%= data.vote1*100/data.somme %>,
+                                    color:  "#33b4e5"
+                                },
+                                {
+                                    value : <%= data.vote2*100/data.somme %>,
+                                    color : "#aa66cc"
+                                },                
+                                {
+                                    value : <%= data.vote3*100/data.somme %>,
+                                    color : "#99cc00"
+                                },  
+                                {
+                                    value : <%= data.vote4*100/data.somme %>,
+                                    color : "#ffbb33"
+                                },
+                                {
+                                    value : <%= data.vote5*100/data.somme %>,
+                                    color : "#ff4343"
+                                }
+                            
+                            ];
+
+                    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+                    
+                    </script>
+				</div>
+			</div>
+			<div class="div-btn-results">
+				<a href="/sondage/<%= data.id%>"><div class="button">Voter</div></a>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="networking">
+				<div>
+                    <span>Suivez-nous</span>
+				</div>
+                    <a href="#"><div class="circle">f</div></a>
+                    <a href="#"><div class="circle">t</div></a>
+			</div>
+			<div class="copyright">
+				@ Copyright 2014 Yes We Scan
+			</div>
+		</div>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="/js/client.js"></script>
+	</body>
+</html>

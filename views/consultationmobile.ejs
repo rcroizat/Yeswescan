@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/css/mobile-css/style.css">
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script>
+			function initialize() {
+				var myLatlng = new google.maps.LatLng(48.877152,2.329986);
+				var mapOptions = {
+					zoom: 17,
+					center: myLatlng
+				}
+				var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+				var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					title: 'Hello World!'
+				});
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header">
+			<a href="/recherchermobile"><img src="/mobile-img/icon-menu.png" class="icon-menu"/></a>
+			<div class="font-logo">Yes we scan</div>
+			<img src="/mobile-img/icon-back.png" class="icon-back"/>
+		</div>
+		<div class="consultation">
+            <img src="/mobile-img/star.png" class="star">
+            <div class="sentence1">
+                Profil du sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">Peter Shoe</span>
+            </div>
+            <div class="sentence2">
+                <%= data.question %>
+            </div>
+            <div class="sentence3">
+                <%= data.contexte %>
+            </div>
+			<div id="map-canvas"></div>
+		</div>
+        <div class="footer">
+            <div class="aligner"></div>
+            <a href="/consultationmobile/<%= data.id %>"><img src="/mobile-img/icon-signaler.png"></a>
+            <a href="/sondage-mobile/<%=  data.id %>"><img src="/mobile-img/icon-voter.png"></a>
+            <a href="/mobile/vote/<%=  data.id %>/1"><img src="/mobile-img/icon-statistiques.png"></a>
+            <img src="/mobile-img/icon-suivre.png">
+        </div>
+	</body>
+</html>

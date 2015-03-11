@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/web-css/style.css">
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script>
+           function initialize() {
+                var myLatlng = new google.maps.LatLng(<%= data.position %>);
+                var mapOptions = {
+                    zoom: 10,
+                    center: myLatlng
+                }
+
+                var map = new google.maps.Map(document.getElementById('map-canvas3'), mapOptions);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: '<%= data.adresse %>'
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="font-logo"><a href="/">Yes we scan</a></div>
+            <nav>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/recherche">Rechercher</a></li>
+                    <li><a href="/inscription">S'inscrire</a></li>
+                    <li><a href="/login">Se connecter</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="empty"></div>
+        <div class="content create-survey consultation">
+            <div class="title-page">
+                <div class="div-title-page"><span>Consultation de sondage</span></div>
+            </div>
+            <div class="top-content-consultation">
+                <div id="map-canvas3"></div>
+                <div id="description-consultation">
+                    <div class="title-consultation">Sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">anonyme</span></div>
+                    <div class="question-consultation"><%= data.question %></div>
+                    <div class="contexte-consultation">
+                        <span><%= data.contexte %></span>
+                        
+                    </div>
+                    <div class="two-buttons-confirmation">
+                        <!--
+                        <div class="button button1">Voter</div>
+                        <div class="button button2">Visualisation affiche</div></br></br>
+                        -->
+                        <a href="/template/<%= data.id %>"><div class="button button2">Visualisation affiche</div></a>
+                        <a href="/dupliquer/<%= data.id %>"><div class="button button4">Dupliquer</div></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="middle-content-consultation">
+                <div class="title-page">
+                    <div class="div-title-page"><span>Formulaire de votes</span></div>
+                </div>
+                <div class="reponses-a-cocher">
+
+                    <%if (data.r1) {%>
+                        <a href="/sondage/<%= data.id %>/1">
+                            <div class="bloc">
+                                <div class="num">1.</div>
+                                <div class="name"><%= data.r1 %></div>
+                            </div>
+                        </a>
+                    <%}%>
+
+                    <%if (data.r2) {%>
+                        <a href="/sondage/<%= data.id %>/2">
+                            <div class="bloc">
+                                <div class="num">2.</div>
+                                <div class="name"><%= data.r2 %></div>
+                            </div>
+                        </a>
+                    <%}%>
+
+                    <%if (data.r3) {%>
+                        <a href="/sondage/<%= data.id %>/3">
+                            <div class="bloc">
+                                <div class="num">3.</div>
+                                <div class="name"><%= data.r3 %></div>
+                            </div>
+                        </a>
+                    <%}%>
+
+                    <%if (data.r4) {%>
+                        <a href="/sondage/<%= data.id %>/4">
+                            <div class="bloc">
+                                <div class="num">4.</div>
+                                <div class="name"><%= data.r4 %></div>
+                            </div>
+                        </a>
+                    <%}%>
+
+                    <%if (data.r5) {%>
+                        <a href="/sondage/<%= data.id %>/5">
+                            <div class="bloc">
+                                <div class="num">5.</div>
+                                <div class="name"><%= data.r5 %></div>
+                            </div>
+                        </a>
+                    <%}%>
+             
+                </div>
+            <div class="div-btn-results">
+                <div class="button">Cliquer sur une réponse</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="networking">
+                <div>
+                    <span>Suivez-nous</span>
+                </div><div class="circle">f</div><div class="circle">t</div>
+            </div>
+            <div class="copyright">
+                @ Copyright 2014 Yes We Scan
+            </div>
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+</html>

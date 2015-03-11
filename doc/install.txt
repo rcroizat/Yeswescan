@@ -1,0 +1,16 @@
+npm install 
+mysql
+socket.io
+express
+ejs
+ent (pour le htmp secur)
+socket.io express
+
+
+
+
+
+source :
+http://davidshimjs.github.io/qrcodejs/
+http://www.chartjs.org/docs/
+http://sachinchoolur.github.io/lightslider/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/mobile-css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="header">
+            <a href="/recherchermobile"><img src="/mobile-img/icon-menu.png" class="icon-menu"/></a>
+            <div class="font-logo">Yes we scan</div>
+            <img src="/mobile-img/icon-back.png" class="icon-back"/>
+        </div>
+        <div class="content">
+            <img src="/mobile-img/star.png" class="star">
+            <div class="sentence1">
+                Demande de confirmation au</br> sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">Peter Shoe</span>
+            </div>
+            <div class="sentence2"><%= data.question %></div>
+            <div class="sentence3">Vous avez répondu :</div>
+            <div class="sentence4">
+                <%if (data.r1) {%> <%= data.r1 %> <%}%>
+                <%if (data.r2) {%> <%= data.r2 %> <%}%>
+                <%if (data.r3) {%> <%= data.r3 %> <%}%>
+                <%if (data.r4) {%> <%= data.r4 %> <%}%>
+                <%if (data.r5) {%> <%= data.r5 %> <%}%>
+            </div>
+            <div class="two-buttons-confirmation">
+                <a href="/sondage-mobile/<%= data.id %>"><div class="button button1">Annuler</div></a>
+                <%if (data.r1) {%>  <a href="/enregistrementvotemobile/<%= data.id %>/1"><div class="button button2">Valider</div></a> <%}%>
+                <%if (data.r2) {%>  <a href="/enregistrementvotemobile/<%= data.id %>/2"><div class="button button2">Valider</div></a> <%}%>
+                <%if (data.r3) {%>  <a href="/enregistrementvotemobile/<%= data.id %>/3"><div class="button button2">Valider</div></a> <%}%>
+                <%if (data.r4) {%>  <a href="/enregistrementvotemobile/<%= data.id %>/4"><div class="button button2">Valider</div></a> <%}%>
+                <%if (data.r5) {%>  <a href="/enregistrementvotemobile/<%= data.id %>/5"><div class="button button2">Valider</div></a> <%}%>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="aligner"></div>
+            <a href="/consultationmobile/<%= data.id %>"><img src="/mobile-img/icon-signaler.png"></a>
+            <a href="/sondage-mobile/<%=  data.id %>"><img src="/mobile-img/icon-voter.png"></a>
+            <a href="/mobile/vote/<%=  data.id %>/1"><img src="/mobile-img/icon-statistiques.png"></a>
+            <img src="/mobile-img/icon-suivre.png">
+        </div>
+    </body>
+</html>

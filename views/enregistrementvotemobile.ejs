@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/css/mobile-css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header">
+            <a href="/recherchermobile"><img src="/mobile-img/icon-menu.png" class="icon-menu"/></a>
+			<div class="font-logo">Yes we scan</div>
+			<img src="/mobile-img/icon-back.png" class="icon-back"/>
+		</div>
+		<div class="content enregistrement-vote">
+			<img src="/mobile-img/star.png" class="star">
+			<div class="sentence1">
+				Confirmation au<br/>sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">Peter Shoe</span>
+			</div>
+			<div class="sentence2"><%= data.question %></div>
+			<div class="sentence3"><%= data.contexte %><br></div>
+			<div class="sentence4">Votre vote a bien été enregistrée<br/> Merci pour votre participation !</div>
+			<div class="two-buttons-confirmation">
+				<a href="/mobile/vote/<%= data.id %>"><div class="button button1">Stats</div></a>
+				<a href="/connexionmobile"><div class="button button2">favoris</div></a>
+			</div>
+		</div>
+        <div class="footer">
+            <div class="aligner"></div>
+            <a href="/consultationmobile/<%= data.id %>"><img src="/mobile-img/icon-signaler.png"></a>
+            <a href="/sondage-mobile/<%=  data.id %>"><img src="/mobile-img/icon-voter.png"></a>
+            <a href="/mobile/vote/<%=  data.id %>/1"><img src="/mobile-img/icon-statistiques.png"></a>
+            <img src="/mobile-img/icon-suivre.png">
+        </div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+	</body>
+</html>

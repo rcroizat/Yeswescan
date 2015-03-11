@@ -1,0 +1,640 @@
+/* ----------------------------------------------------------------------------
+
+YES-WE-SCAN-style elements for the mobile
+=======================
+
+TABLE OF CONTENTS:
+------------------
+ 1.0 - Body
+ 2.0 - Header
+ 3.0 - Pages ayant des parties communes
+ 	3.1 - CORPS COMMUNS AUX PAGES  VOTER, ENREGISTREMENT,CONFIRMATION, STATISTIQUES
+ 	3.2 - PARTIE DEDIEE A L'ENREGISTREMENT DU VOTE
+ 4.0 - Page RECHERCHER
+ 5.0 - Footer
+
+---------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------
+  1.0 - Body
+---------------------------------------------------------------------------- */
+
+html{
+	//background-color: #f4f2e6;
+	//background-color: red;
+	//background-color: #309ba8;
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	//background-color: green;
+	margin: 0px;
+	padding: 0px;
+}
+
+.container{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 96%;
+	position: relative;
+}
+
+/* ----------------------------------------------------------------------------
+  2.0 - Header
+---------------------------------------------------------------------------- */
+
+.header{
+	background-color: #f4f2e6;
+  	//width:100%;
+	//margin-bottom: 25px;
+	//background-color: yellow;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 40px;
+	z-index: 2;
+}
+
+.header img{
+	display: inline-block;
+	width: 30px;
+	height: 25px;
+}
+
+.icon-menu{
+	position: absolute;
+	top: 8px;
+	left: 10px;
+}
+
+.font-logo{
+	line-height:40px;
+	text-align:center; 
+	color: #309ba8;
+	font-size: 20px;
+	vertical-align:middle;
+	font-family: "Segoe Script";
+}
+
+.icon-back{
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+
+/* ----------------------------------------------------------------------------
+  3.0 - PAGES AYANT DES PARTIES COMMUNES
+---------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------
+  3.1 - CORPS COMMUNS AUX PAGES  VOTER, ENREGISTREMENT,CONFIRMATION, STATISTIQUES
+---------------------------------------------------------------------------- */
+
+.star{
+	position: absolute;
+	top: 8px;
+	right: 5px;
+}
+
+/*.confirmation{
+	padding-top: 10%;
+	position: absolute;
+	top: 36px;
+	left: 0px;
+	right: 0px;
+	bottom: 36px;
+}*/
+
+.content{
+	font-family: Arial;
+	background-color: white;
+	text-align: center;
+	//height:100%;
+	margin: 0;
+	padding: 0;
+/*
+	position: absolute;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+*/
+}
+
+.sentence1{
+	margin-top: 2%;
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	right: 5%;
+	font-size: 20sp;
+}
+
+.sentence2{
+	font-weight: bold;
+	position: absolute;
+	top: 30%;
+	left: 5%;
+	right: 5%;
+}
+
+.sentence3{
+	//font-size: 20sp;
+    text-overflow: ellipsis;
+    width:90%;
+    height:10%;
+	position: absolute;
+	top: 43%;
+	left: 5%;
+	right: 5%;
+}
+
+.sentence4{
+	position: absolute;
+	top: 61%;
+	left: 5%;
+	right: 5%;
+}
+
+.two-buttons-confirmation{
+	position: absolute;
+	bottom: 18%;
+	left: 5%;
+	right: 5%;
+}
+
+.two-buttons-confirmation .button a{
+    text-decoration:none;
+    color:white;
+}
+
+.two-buttons-confirmation .button{
+	background-color: #ff0000;
+	display: inline-block;
+	vertical-align: top;
+	//width: 40%;
+	width: 35%;
+	//height: 30px;
+	font-size: 20sp;
+	font-weight: bold;
+	color: white;
+	text-transform: uppercase;
+	padding: 12px;
+	margin-right: 1%;
+	margin-left: 1%;
+    margin-bottom:0;
+}
+
+.two-buttons-confirmation .button2{
+	background-color: #309e8a;
+}
+
+/* ----------------------------------------------------------------------------
+  3.2 - PARTIE DEDIEE A LA CONSULTATION D'UN SONDAGE
+---------------------------------------------------------------------------- */
+
+.consultation{
+	font-family: Arial;
+	background-color: white;
+	text-align: center;
+	//height:100%;
+	margin: 0;
+	padding: 0;
+
+	position: absolute;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+}
+
+.sentence1-consulation{
+	//color: white;
+	margin-top: 60px;
+	font-weight: bold;
+	//font-size: 27sp;
+	//background-color: yellow;
+    
+    
+	margin-top: 2%;
+	position: absolute;
+	top: 45px;
+	left: 5%;
+	right: 5%;
+	font-size: 20sp;
+}
+
+
+.sentence2-consulation{
+	margin-top: 75px;
+	//font-size: 20sp;
+    
+	margin-top: 2%;
+	position: absolute;
+	top: 110px;
+	left: 5%;
+	right: 5%;
+	font-size: 20sp;
+}
+
+#map-canvas {
+	background-color: white;
+	border: 1px solid #ebebeb;
+	//width: 99.5%;
+	height: 40%;
+	padding: 0;
+	margin: 0;
+    position: absolute;
+	bottom: 0;
+	left: 0;
+	right:0;
+}
+
+/* ----------------------------------------------------------------------------
+  3.2 - PARTIE DEDIEE AU FORMULAIRE DE VOTE
+---------------------------------------------------------------------------- */
+
+.reponses{
+	background-color: yellow;
+	//font-size: 80px;
+	text-align: left;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.reponses ul{
+	padding: 0;
+	margin: 0;
+}
+
+.reponses a{
+    text-decoration:none;
+}
+
+.reponses li{
+	list-style-type: none;
+	background-color: #362e24;
+	border-top: 1px solid white;
+	border-left: 0px solid white;
+	border-right: 0px solid white;
+	padding: 20px;
+	color: white;
+	font-weight: bold;
+	font-size: 20sp;
+	position: relative;
+}
+
+.reponses li:hover{
+	background-color: #26998e;
+}
+
+.reponses span{
+	position: absolute;
+	top: 20%;
+	right: 5%;
+}
+
+
+/* ----------------------------------------------------------------------------
+  3.2 - PARTIE DEDIEE A L'ENREGISTREMENT DU VOTE
+---------------------------------------------------------------------------- */
+
+.enregistrement-vote .button1{
+	background-color:#e9b600;
+}
+
+.enregistrement-vote .button2{
+	background-color:#918873;
+}
+
+.reponses-stats{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#camenber{
+	position: relative;
+	//width: 200px;
+	height: 200px;
+}
+
+#pourcentage{
+	position: absolute;
+	top: 5%;
+	right: 0;
+	font-size: 20px;
+	text-transform: uppercase;
+	background-color: #fafafa;
+	padding: 1%;
+	//width: 100%;
+	//height: 100%;
+	border: 2px inset silver;
+	text-align: left;
+	font-size: 13px;
+}
+
+.div-pourcentage{
+	margin-top: 5%;
+}
+
+.carre{
+	display:inline-block;
+	vertical-align: top;
+	width: 20px;
+	height: 20px;
+}
+
+.div-pourcentage .r1{
+	background-color: #33b4e5;
+}
+
+.div-pourcentage .r2{
+	background-color: #aa66cc;
+}
+
+.div-pourcentage .r3{
+	background-color: #99cc00;
+}
+
+.div-pourcentage .r4{
+	background-color: #ffbb33;
+}
+
+.div-pourcentage .r5{
+	background-color: #ff4343;
+}
+
+.chiffres{
+	display:inline-block;
+	vertical-align: top;
+}
+
+/* ----------------------------------------------------------------------------
+  4.0 - PAGE RECHERCHER
+---------------------------------------------------------------------------- */
+
+.content-result{
+	text-align: left;
+	background-color: white;
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+}
+
+.barre-rechercher{
+	//background-color: #cbcbcb;
+	background-color: #309ba8;
+	//background-color: #f7f7f7;
+	//height: 40px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.barre-rechercher form{
+    padding:0;
+    margin:0;
+}
+
+.barre-rechercher #rechercheMobile input{
+	border: 0px solid black;
+	border-radius: 5px;
+	width: 95%;
+	//height: 90%;
+	color: #a1a1a1;
+	//font-size: 60px;
+	padding-left: 6px;
+}
+
+.result{
+	//background-color: red;
+	position: relative;
+	//height: 250px;
+	border-bottom: 3px solid #f1f1f1;
+	font-family: Arial;
+	padding-top: 3px;
+	padding-left: 15px;
+	//font-size: 50px;
+}
+
+.result .author, .place{
+	font-weight: bold;
+	//font-size: 50px;
+}
+
+.result .date{
+	position: absolute;
+	top: 2px;
+	right: 15px;
+	color: #a1a1a1;
+	font-weight: bold;
+	//font-size: 50px;
+}
+
+.result .rep{
+	margin-top: 2px;
+}
+
+.result .question, .rep{
+	color: #a1a1a1;
+}
+
+/* ----------------------------------------------------------------------------
+  5.0 - FOOTER
+---------------------------------------------------------------------------- */
+
+.footer{
+	background-color: #f4f2e6;
+	//background-color: green;
+  	text-align:center;
+  	width:100%;
+  	//padding: 3px 0px;
+	//height: 25px;
+	margin-top: 25px;
+
+	position: absolute;
+	//height: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.footer a{
+  	//vertical-align:middle;
+ }
+
+.footer img{
+	width: 30px;
+	height: 30px;
+  	margin:0 15px; /* espacement horizontal des blocs */
+  	display:inline-block;
+  	vertical-align:middle;
+  	text-align:left; 
+}
+
+.aligner{
+	display:inline-block;
+	vertical-align:middle;
+	height:100%;
+}
+
+/* ----------------------------------------------------------------------------
+ 6.0 - Scrollbar
+ ENSEMBLE QUI PERMET DE NE PAS AFFICHER LE SCROLL PAR DEFAUT
+---------------------------------------------------------------------------- */
+
+.scrollable{
+	overflow-y:hidden;
+}
+
+.scrollable::-webkit-scrollbar{
+	width:6px;
+	//background-color:#08090c;
+}
+
+.scrollable::-webkit-scrollbar-thumb{
+	/*background-color:#B03C3F;
+	background-color:#66595c;
+	background-color:#7f4428;
+	background-color:#efeae1;
+	border:1px solid #333333;*/
+	border-radius:5px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover{
+	background-color:#2dd7bc;
+	border:1px solid #333333;
+}
+
+.scrollable::-webkit-scrollbar-thumb:active{
+	background-color:#2dd7bc;
+	border:1px solid #333333;
+}
+
+.scrollable::-webkit-scrollbar-track{
+	border:0px gray solid;
+	border-radius:0px;
+	//-webkit-box-shadow:0 0 6px gray inset;
+}
+
+/* ----------------------------------------------------------------------------
+7.0 - INSCRIPTION
+---------------------------------------------------------------------------- */
+.bloc{
+	background-color: #309ba8;
+	color: white;
+}
+
+.bloc #inscriptionLink{
+	background-color: #309ba8;
+	color: white;
+	position: absolute;
+	bottom: 5%;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.bloc .title{
+	position: absolute;
+	top: 12%;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.bloc .title .logo{
+	font-size: 40px;
+	font-family: "Segoe Script";
+}
+
+.bloc .title .sentences{
+	font-style: italic;
+}
+
+.bloc .formulaire{
+	position: absolute;
+	left: 10%;
+	right: 0;
+	bottom: 15%;
+	//text-align: left;
+	text-transform: uppercase;
+	//font-size: 15px;
+	font-family: "Arial";
+}
+
+.bloc .formulaire form input[type="text"]{
+	width: 89%;
+	height: 30px;
+	border: 0;
+}
+
+.bloc .formulaire form input[type="submit"]
+{
+    margin: 0;
+    margin-top: 10px;
+    padding: 25px 0px;
+    width: 89%;
+    line-height: 100%; /* Si ça fonctionne pas mets 0 */
+    border: 0;
+    background: #918873; /* ou transparent je sais plus... */
+    color: white;
+	text-transform: uppercase;
+}
+
+.containerFavoris{
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	background-color: #eeeadb;
+	padding-top: 50px;
+	//padding-bottom: 5px;
+	padding-left: 7%;
+	//padding-right: 4%;
+	text-align: center;
+}
+
+.divcontainerFavoris{
+	//display: inline-block;
+}
+
+.itemfav
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 42%;
+	background-color: white;
+	margin-bottom: 5%;
+	overflow: hidden;
+	font-size: 25px;
+}
+
+.itemfav.w2 {
+	//background-color: #e2ff00;
+}
+
+.itemfav.w3 {
+	//background-color: #362e24;
+	//color: white;
+}
+
+.itemfav.w4 {
+	//background-color: #28998e;
+	//color: white;
+}

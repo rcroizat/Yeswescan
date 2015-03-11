@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/mobile-css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="header">
+            <a href="/recherchermobile"><img src="/mobile-img/icon-menu.png" class="icon-menu"/></a>
+            <div class="font-logo">Yes we scan</div>
+            <img src="/mobile-img/icon-back.png" class="icon-back"/>
+        </div>
+        <div class="content">
+            <img src="/mobile-img/star.png" class="star">
+            <div class="sentence1">
+                Votez au sondage #<span class="num-survey"><%= data.id %></span></br> créé par <span class="creator-name">Peter Shoe</span>
+            </div>
+            <div class="sentence2">
+                <%= data.question %>
+            </div>
+            <div class="reponses">
+                <ul>
+                    <%if (data.r1) {%>
+                        <a href="/demandeconfirmationmobile/<%= data.id %>/1"><li><%= data.r1 %><span>></span></li></a>
+                    <%}%>       
+                     <%if (data.r2) {%>
+                        <a href="/demandeconfirmationmobile/<%= data.id %>/2"><li><%= data.r2 %><span>></span></li></a>
+                    <%}%>       
+                    <%if (data.r3) {%>
+                        <a href="/demandeconfirmationmobile/<%= data.id %>/3"><li><%= data.r3 %><span>></span></li></a>
+                    <%}%>       
+                    <%if (data.r4) {%>
+                        <a href="/demandeconfirmationmobile/<%= data.id %>/4"><li><%= data.r4 %><span>></span></li></a>
+                    <%}%>       
+                    <%if (data.r5) {%>
+                        <a href="/demandeconfirmationmobile/<%= data.id %>/5"><li><%= data.r5 %><span>></span></li></a>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="aligner"></div>
+            <a href="/consultationmobile/<%= data.id %>"><img src="/mobile-img/icon-signaler.png"></a>
+            <a href="/sondage-mobile/<%=  data.id %>"><img src="/mobile-img/icon-voter.png"></a>
+            <a href="/mobile/vote/<%=  data.id %>/1"><img src="/mobile-img/icon-statistiques.png"></a>
+            <img src="/mobile-img/icon-suivre.png">
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+</html>

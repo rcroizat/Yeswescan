@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yes We Scan</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/web-css/style.css">
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+   
+
+    </head>
+    <body>
+        <div class="header header-inscription">
+            <div class="font-logo"><a href="/">Yes we scan</a></div>
+            <nav>
+                <ul>
+                    <li class="selected"><a href="/">Accueil</a></li>
+                    <li><a href="/recherche">Rechercher</a></li>
+                    <li><a href="/inscription">S'inscrire</a></li>
+                    <li><a href="/connexion">Se connecter</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="wrap-content">
+        <div id="div-header">
+            <img src="../web-img/photo-home01.png" class="photo"/>
+            <div class="sentence">Créer un sondage et le diffuser n'aura jamais été aussi facile.</div>
+            <div class="button-empty"><a id="create" href="/create"><div  class="word">Créer un sondage</div></a></div>
+        </div>
+        <div id="devise">
+            <div class="content">
+                <div class="title">Notre devise</div>
+                <div class="description">
+                    <span>Parce que vos questions doivent être entendu que nous avons décider de faire Yes We Scan</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                    <span>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="highlight">
+           <!--<div class="other-survey previous-survey"><</div>
+            <div class="other-survey next-survey">></div>-->
+            <div class="title-highlight">
+        
+                Nos coups de coeur
+     
+            </div>
+             <div class="content">
+               <!--  Roule les différents sondages de hglight -->
+
+
+          <div id="container"  style="width:100%; height:500px;">
+
+                <div id="theTarget">
+            <% for(var i=0; i<data.length; i++) {%>
+                  <div  style="background-image: none">
+                                     <script>
+                function initialize() {
+                    var myLatlng = new google.maps.LatLng(<%= data[i].position %>);
+                    var mapOptions = {
+                        zoom: 17,
+                        center: myLatlng
+                    }
+
+                    var map<%= data[i].id %> = new google.maps.Map(document.getElementById('map-canvas<%= data[i].id %>'), mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map<%= data[i].id %>,
+                        title: '<%= data[i].adresse %>'
+                    });
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+                       
+                    <style type="text/css">
+                         #map-canvas<%= data[i].id %> {
+                        background-color: white;
+                        border: 1px solid #ebebeb;
+                        width: 50%;
+                        vertical-align: top;
+                        height: 100%;
+                        display: inline-block;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    </style>
+                <div class="top-content">
+                    <div id="map-canvas<%= data[i].id %>"></div>
+                    <div class="description">
+                        <div class="title">Sondage #<span class="num-survey"><%= data[i].id %></span></br> créé par <span class="creator-name">anonyme</span></div>
+                        <div class="question"><%= data[i].question %></div>
+                        <div class="contexte">
+                            <span><%= data[i].contexte %></span>
+                        </div>
+                        <div class="two-buttons-confirmation">
+                            <a href="/sondage/<%= data[i].id %>"><div class="button button1">Voter</div></a>
+                            <a href="#"><div class="button button2">Stats</div></a></br></br>
+                            <a href="#"><div class="button button3">Suivre</div></a>
+                            <a href="dupliquer/<%= data[i].id %>"><div class="button button4">Dupliquer</div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>  
+     </div>
+
+
+
+            <!-- fin des highlight -->
+                <div class="research">
+                    <div id="div-research">
+                        <form action="/" id="rechercheFormAccueil">
+                            <input type="search" name="recherche" id="recherche" placeHolder="Rechercher un sondage ...">
+                           
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div class="footer">
+            <div class="networking">
+                <div><span>Suivez-nous</span></div><div class="circle">f</div><div class="circle">t</div>
+            </div>
+            <div class="copyright">
+                @ Copyright 2014 Yes We Scan
+            </div>
+        </div>
+
+
+        <link rel="stylesheet" href="js/skippr/skippr/css/jquery.skippr.css">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="js/skippr/skippr/js/jquery.skippr.js"></script>     
+          <script >   
+            //highlight
+            (function($){
+                $(document).ready(function(){
+                $("#theTarget").skippr();
+            });    
+            })(jQuery);
+        </script>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+</html>

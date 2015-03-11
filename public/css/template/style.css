@@ -1,0 +1,138 @@
+html,body{
+  //height:297mm;
+  //width: 210mm;
+  height:210mm;
+  width: 297mm;
+  margin:0px;
+  padding:0px;
+  display:inline-block;
+}
+body{
+  //background-color:red;
+  position: relative;
+  //margin: 10mm;
+  //border: 1px solid black;
+  font-family: Georgia;
+}
+#content{
+  position:absolute;
+  left:   8mm;
+  right:  8mm;
+  top:    8mm;
+  bottom: 8mm;
+  border:1mm dashed black;
+  //box-shadow: 1px 1px 3px 3px black;
+}
+/* HEADER */
+#header{
+  margin:0px;
+  height:20%;
+  //background-color:#f9aaaa;
+}
+#logo{
+  width:40mm;
+  vertical-align:middle;
+  margin: 5mm;
+}
+
+.font-logo{
+  font-family: "Segoe script";
+  font-size: 30px;
+  position: absolute;
+  position: absolute;
+  top:15px;
+  left: 35px;
+  text-decoration: none;
+  color: black;
+}
+
+.font-logo a{
+  text-decoration: none;
+  color: black;
+}
+
+#context{
+  position:absolute;
+  left: 70mm;
+  right: 10mm;
+  top: 5mm;
+  display:inline-block;
+  font-size:6mm;
+  text-align: justify;
+  vertical-align:middle;
+}
+/* MIDDLE */
+
+.imprimerpage{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 9px #777;
+  color: red;
+
+}
+
+#middle{
+  margin:0px;
+  height:60%;
+  //background-color:#aaf9aa;
+}
+#question{
+  position:relative;
+  top:10%;
+  text-align:center;
+  font-size: 10mm;
+  font-weight:bold;
+  padding: 0mm 10mm;
+}
+#answers-box{
+  position:relative;
+  top:20%;
+  padding:0mm 10mm;
+  text-align: center;
+}
+.qrcode{
+  width:30mm;
+  height:30mm;
+}
+.answer{
+  display:inline-block;
+  margin: 10mm;
+  text-align:center;
+}
+.answer-text{
+  font-size:5mm;
+  font-weight:bold;
+}
+
+/* FOOTER */
+#footer{
+  position:relative;
+  margin:0px;
+  height:20%;
+  //background-color:#aaaaf9;
+  font-size: 5mm;
+}
+
+#fieldset{
+  display:inline-block;
+  position:absolute;
+  //border: 1px solid black;
+  //top: 5mm;
+  bottom: 5mm;
+  left:   5mm;
+  right:  5mm;
+}
+
+#instructions{
+  font-size:4mm;
+}
+
+#surveylink{
+  text-align: center;
+  font-weight: bold;
+}

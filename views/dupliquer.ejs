@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Yes We Scan</title>
+        <link rel="stylesheet" type="text/css" href="/css/web-css/style.css">
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+        <script type="text/javascript">
+            var geocoder;
+            var map;
+            // initialisation de la carte Google Map de départ
+            function initialiserCarte() {
+              geocoder = new google.maps.Geocoder();
+              // Ici j'ai mis la latitude et longitude du vieux Port de Marseille pour centrer la carte de départ
+              var latlng = new google.maps.LatLng(<%= data.position%>);
+              var mapOptions = {
+                zoom      : 14,
+                center    : latlng,
+                mapTypeId : google.maps.MapTypeId.ROADMAP
+              }
+              // map-canvas est le conteneur HTML de la carte Google Map
+              map = new google.maps.Map(document.getElementById('map-canvas2'), mapOptions);
+            }
+             
+            function TrouverAdresse() {
+              // Récupération de l'adresse tapée dans le formulaire
+              var adresse = document.getElementById('adresse').value;
+              geocoder.geocode( { 'address': adresse}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  map.setCenter(results[0].geometry.location);
+                  // Récupération des coordonnées GPS du lieu tapé dans le formulaire
+                  var strposition = results[0].geometry.location+"";
+                  strposition=strposition.replace('(', '');
+                  strposition=strposition.replace(')', '');
+                  // Affichage des coordonnées dans le <span>
+                  document.getElementById('position').value = strposition;
+                  // Création du marqueur du lieu (épingle)
+                  var marker = new google.maps.Marker({
+                      map: map,
+                      position: results[0].geometry.location
+                  });
+                } else {
+                  alert('Adresse introuvable: ' + status);
+                }
+              });
+            }
+            // Lancement de la construction de la carte google map
+            google.maps.event.addDomListener(window, 'load', initialiserCarte);
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="font-logo"><a href="/">Yes we scan</a></div>
+            <nav>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/recherche">Recherche </a></li>
+                    <li><a href="/">S'inscrire</a></li>
+                    <li><a href="/">Se connecter</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="empty"></div>
+        <div class="content create-survey">
+            <div class="title-page">
+                <div class="div-title-page"><span>Création de sondage</span></div>
+            </div>
+            <form action="" id="sondageform">
+                <div class="session" id="session-question">
+                    <div class="chapitre">Commencez par la question et le contexte</div></br>
+                    <label for="question" class="intitule">question</label></br>
+                    <input type="text" name="question" id="question" value='<%= data.question%>' required/>
+                    <!--<div id="public-or-not">
+                        <input type="radio" name="statut" value="public"/>public</br>
+                        <input type="radio" name="statut"  value="privee"/>privee
+                    </div>-->
+                    </br></br>
+                    <label for="contexte" class="intitule">contexte</label></br>
+                    <textarea type="text" id="contexte" name="contexte" ><%= data.contexte%></textarea>
+
+                </div>
+                <div class="session" id="session-reponses">
+
+                    <div class="chapitre">Entrez au plus 5 réponses</div></br>
+
+                    <label for="reponse1" class="intitule">réponse 1</label></br>
+                    <input input type="text" name="r1" id="r1" value="<%= data.r1 %>"required/>
+                    </br></br>
+
+
+                      <label for="reponse2" class="intitule">réponse 2</label></br>
+                      <input input type="text" name="r2" id="r2" value="<%= data.r2 %>" required/></br>
+                      </br></br>
+
+                    <%if (data.r3) {%>
+                      <label for="reponse2" class="intitule">réponse 3</label></br>
+                      <input input type="text" name="r3" id="r3" value="<%= data.r3 %>" required/></br>
+                      </br></br>
+                    <%}%>
+                  
+                    <%if (data.r4) {%>
+                      <label for="reponse4" class="intitule">réponse 4</label></br>
+                      <input input type="text" name="r4" id="r4" value="<%= data.r4 %>" required/></br>
+                      </br></br>
+                    <%}%>
+                  
+                    <%if (data.r5) {%>
+                      <label for="reponse5" class="intitule">réponse 5</label></br>
+                      <input input type="text" name="r5" id="r5" value="<%= data.r5 %>" required/></br>
+                      </br></br>
+                    <%}%>
+                  
+                </div>
+                <div class="session" id="session-affiches">
+                    <div class="chapitre">Choississez votre affiche</div></br>
+                    <div class="form">
+                        <input type="radio" name="template"  value="paysage"/>paysage
+                        <div id="paysage-form" class="div-form"></div>
+                    </div>
+                    <div class="form">
+                        <input type="radio" name="template" value="portrait"/>portrait
+                        <div id="portrait-form" class="div-form"></div>
+                    </div>
+                </div>
+                <form>
+
+                <div class="session" id="session-hotspot">
+              
+                    <div id="map-canvas2" class="div-form"></div>
+                    <div id="hotspot"><!--
+                        <select>
+                            <option>Sélectionner un lieu</option>
+                            <option>14 rue Charles De Gaulles</option>
+                            <option>7 allée Emile Bolert</option>
+                            <option>32 rue du Carrefour</option>
+                        </select>-->
+                        <div id="div-adresse">
+                            <label for="adresse" class="intitule">ou entrer une nouvelle adresse</label></br>
+                            <input type="text" id="adresse" value="<%= data.adresse %>" />
+                            <div class="button" value="Localiser sur Google Map" onclick="TrouverAdresse();">Ajouter</div>
+                            <input type="hidden" id="position" value="<%= data.position %>">
+                        </div>
+                    </div>
+                </div>
+                <div class="session" id="session-valider">
+                    <div class="chapitre change">Voilà votre sondage est fait ! Il ne vous manque plus que de le valider</div>
+                    <input type="submit" class="button-valider" value="Valider"/>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+          <div class="networking">
+            <div>
+                <span>Suivez-nous</span>
+            </div>
+                <a href="#"><div class="circle">f</div></a>
+                <a href="#"><div class="circle">t</div></a>
+          </div>
+          <div class="copyright">
+            @ Copyright 2014 Yes We Scan
+          </div>
+        </div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script src="/js/client.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/css/web-css/style.css">
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	</head>
+	<body>
+		<div class="header">
+			<div class="font-logo">Yes we scan</div>
+			<nav>
+				<ul>
+	                <li><a href="/">Accueil </a></li>
+	                <li><a href="/recherche">Recherche </a></li>
+	                <li><a href="/inscription">S'inscrire</a></li>
+	                <li><a href="/login">Se connecter</a></li>
+                </ul>
+			</nav>
+		</div>
+		<div class="empty"></div>
+		<div class="content create-survey consultation">
+			<div class="title-page">
+				<div class="div-title-page"><span>Consultation de sondage</span></div>
+			</div>
+			<div class="top-content-consultation">
+				<div id="map-canvas3"></div>
+				<div id="description-consultation">
+					<%= data.r1 %>
+		</div>
+        <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script src="/js/client.js"></script>
+	</body>
+</html>

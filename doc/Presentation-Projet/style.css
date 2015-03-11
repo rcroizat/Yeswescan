@@ -1,0 +1,165 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	//background-color: #349da8;
+}
+
+body{
+	//width: 100%;
+	height: 100%;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+#div-homepage{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #b21919;
+}
+
+.homepage{
+	background-color: #349da8;
+}
+
+#title-projet{
+	text-align: center;
+	font-size: 60px;
+	font-family: "Segoe Script";
+	color: white;
+	position: absolute;
+	top: 30%;
+	left: 0;
+	right: 0;
+}
+
+header{
+	margin: 0;
+	height: 60px;
+	background-color: #b21919;
+	text-align: center;
+	display: inline-block;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	font-family: "Segoe Script";
+	padding-top: 20px;
+	padding-bottom: 10px;
+	font-size: 35px;
+	color: white;
+}
+
+.previous{
+	position: fixed;
+	top: 15px;
+	left: 5%;
+	font-size: 50px;
+	font-weight: bold;
+	color: white;
+	z-index: 2;
+}
+
+.next{
+	position: fixed;
+	top: 15px;
+	right: 5%;
+	font-size: 50px;
+	font-weight: bold;
+	color: white;
+	z-index: 2;
+}
+
+.content{
+	position: absolute;
+	top: 20%;
+	left: 17%;
+	right: 20%;
+	//background-color: red;
+	font-size: 40px;
+}
+
+.title-page{
+	font-weight: bold;
+}
+
+.sentence{
+	margin-top: 2%;
+}
+
+.div-content{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.prez-equipe .sentence4{
+	color: silver;
+}
+
+#client-name{
+	margin-top: 1%;
+}
+
+#client-old{
+	font-size: 24px;
+	color: gray;
+	font-weight: bold;
+}
+
+#client-photo{
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 8%;
+	margin-left: 5%;
+	width: 250px;
+	height: 200px;
+}
+
+#client-photo img{
+	width: 100%;
+	height: 100%;
+}
+
+#hisworld{
+	margin-top: 5%;
+	font-size: 20px;
+}
+
+.but-projet {
+	position: absolute;
+	top: 14%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding:0;
+	margin:0;
+}
+
+#maquettes-mobile img{
+	width: 80%;
+}
+
+.bilan{
+	font-size: 30px;
+}
+
+footer{
+	margin: 0;
+	height: 40px;
+	background-color: #b21919;
+	text-align: center;
+	z-index: 1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top: 20px;
+	font-size: 20px;
+	color: white;
+}
